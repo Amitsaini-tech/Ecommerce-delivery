@@ -1,0 +1,102 @@
+.wrap {
+    width: 100vw;
+    height: 20vh;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+    padding: 10px ;
+}
+
+.wrapper {
+   
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 10px;
+
+}
+
+.marquee {
+    display: flex;
+    user-select: none;
+    overflow: hidden;
+    width: auto;
+
+}
+
+.marqueeGroup {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    width: 70%;
+    animation: marqueeAnimation  60s linear infinite;
+
+}
+
+@keyframes marqueeAnimation {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.imageGroup {
+    display: grid;
+    place-items: center;
+    width: clamp(10rem, 1rem + 40vmin, 30rem);
+    padding: calc(clamp(10rem, 1rem + 40vmin, 30rem)/10);
+}
+
+.img {
+    mix-blend-mode:color-burn;
+    object-fit:contain;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    padding: 5px 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* the marquee of mid2container  */
+.Marquee {
+  height: 150px;
+  overflow: hidden;
+  animation: Marquee 40s linear infinite;
+
+}
+
+.Marquee p {
+  display:inline-block;
+  animation: marquee-item 40s linear infinite;
+  
+}
+
+@keyframes Marquee {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes marquee-item {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

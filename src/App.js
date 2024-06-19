@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
+import MainContainer from './components/MainContainer';
+import Pricing from './dropDownMenus/Pricing';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="w-screen h-full flex flex-col">
+            <Header/>
+            <main className=" mt-8 md:mt-12 lg:mt-14 px-1 md:px-1 lg:px-8 w-full">
+            <Routes>
+                <Route path="/*" element ={<MainContainer/>}/>
+                <Route path="/Pricing" element ={<Pricing/>}/>
+            </Routes>
+            </main>
+        </div>
+    )
 }
 
 export default App;
