@@ -24,26 +24,29 @@ const Mid3Container = () => {
             {/* marquee use there */}
             <div className=" h-[20rem] md:h-64 w-full flex justify-center md:justify-between items-center bg-blue-700 rounded-tr-[7rem]">
                 <div className="flex flex-col mx-5 md:mx-7 lg:mx-10 px-7 md:px-7 lg:px-10">
-                    <p className=" font-medium md:font-semibold text-white ">
+                    <div className=" font-medium md:font-semibold text-white ">
                         <span className="text-2xl md:text-3xl lg:text-5xl">From anywhere</span>
-                        <p className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-purple-900 text-3xl md:text-2xl lg:text-4xl">to everywhere
-                        </p>
-                    </p>
+                        <div className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-purple-900 text-3xl md:text-2xl lg:text-4xl">to everywhere
+                        </div>
+                    </div>
                     <div className="text-md md:text-sm lg:text-lg text-white my-1 md:my-2 lg:my-3"><p>Our multi-courier network spread across 24000+ pin codes</p>
                         lets you say yes to every order, even from remote areas.</div>
                     <div className="text-md md:text-md lg:text-lg text-white my-1 md:my-1 lg:my-3">Explore integrations⬈</div>
                 </div>
                 <div className=" hidden md:flex flex-col justify-end items-end ">
                     <div className="flex relative ">
-                        <div className=" Marquee flex flex-col justify-center items-end mx-10 px-10 whitespace-nowrap">
-                            <p className="text-center">{
-                                rows1.map(el => (
-                                    <div className='imageGroup'>
-                                        <img src={el} title='Merchants' className="img" /></div>
-
-                                ))
-                            }
-                            </p>
+                        <div className="flex flex-col justify-start items-end mx-10 px-10 whitespace-nowrap overflow-hidden h-[150px]">
+                            <motion.div
+                                className="flex flex-col"
+                                animate={{ y: ["0%", "-50%"] }}
+                                transition={{ ease: "linear", duration: 40, repeat: Infinity }}
+                            >
+                                {[...rows1, ...rows1].map((el, index) => (
+                                    <div className='imageGroup' key={index}>
+                                        <img src={el} title='Merchants' className="img" />
+                                    </div>
+                                ))}
+                            </motion.div>
                         </div>
                     </div>
                 </div>

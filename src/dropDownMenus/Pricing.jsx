@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import { motion } from "framer-motion"
+import Mid2Container from '../components/Mid2Container'
 
 const Pricing = () => {
   return (
@@ -63,6 +64,7 @@ const Pricing = () => {
           <p className=" text-gray-900 my-2 capitalize">✔  free NDR call center setup</p>
         </div>
       </div>
+      <Mid2Container/>
       <div className="mt-6"><Footer /></div>
 
     </div>

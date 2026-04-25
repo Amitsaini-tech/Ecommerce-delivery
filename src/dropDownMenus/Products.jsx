@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 
 const Flyout = ({ children, href, FlyoutCont }) => {
     const [open, setOpen] = useState(false);
@@ -8,22 +8,22 @@ const Flyout = ({ children, href, FlyoutCont }) => {
 
     const HandleOpenMenu = () => {
         if (timeoutId) {
-                clearTimeout(timeoutId);
-                setTimeoutId(null);
+            clearTimeout(timeoutId);
+            setTimeoutId(null);
         }
         setOpen(true)
-};
-const HandleCloseMenu = () => {
+    };
+    const HandleCloseMenu = () => {
         const id = setTimeout(() => setOpen(false), 200);
         setTimeoutId(id);
-};
+    };
     return (
         <div className="relative w-fit h-fit"
             onMouseEnter={() => HandleOpenMenu(true)}
             onMouseLeave={() => HandleCloseMenu(false)}
         >
             <a href={href} className="relative text-white">
-                {children} {/* Use 'children' to refer to content between component tags */}
+                {children}
                 <span
                     style={{ transform: ShowFlyout ? "scaleX(1)" : "scaleX(0)" }}
                     className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full bg-gray-700 transition-transform duration-300 ease-in-out" />
@@ -32,99 +32,60 @@ const HandleCloseMenu = () => {
         </div>
     );
 };
+
+const liClass = "text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black";
+const subText = "text-[11px] text-gray-400";
+
 const DropDownContent = () => {
     return(
-    <div className="fixed top-14 left-36 w-full md:w-[55rem] h-[21rem] bg-white drop-shadow-md  z-[101] cursor-pointer rounded-xl shadow-lg">
-    <div className=" flex flex-row justify-between items-start">
-
+    <div className="fixed top-14 left-36 w-full md:w-[55rem] h-[21rem] bg-white drop-shadow-md z-[101] cursor-pointer rounded-xl shadow-lg">
+    <div className="flex flex-row justify-between items-start p-3">
             <div>
                     <span className="text-lg text-gray-700 font-light mx-2"> SHIPPING</span>
                     <ul className="mx-6">
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">
-                                    ecommerce Shipping
-                                    <p className="text-[11px] text-gray-400">Automated shipping - faster, cheaper
-                                    </p>
-                            </li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">B2B & Bulk shipping
-                                    <p className="text-[11px] text-gray-400">Reached 220+ countries and territeries
-                                    </p>
-                            </li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">hyperlocal
-                                    <p className="text-[11px] text-gray-400">Low cost cargo shipping across inida
-                                    </p>
-                            </li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">inter-city delivery
-                                    <p className="text-[11px] text-gray-400">speedy intercity deliveries within hours
-                                    </p>
-                            </li>
+                            <Link to="/products/ecommerce-shipping"><li className={liClass}>ecommerce Shipping<p className={subText}>Automated shipping - faster, cheaper</p></li></Link>
+                            <Link to="/products/b2b-shipping"><li className={liClass}>B2B & Bulk shipping<p className={subText}>Reached 220+ countries and territories</p></li></Link>
+                            <Link to="/products/hyperlocal"><li className={liClass}>hyperlocal<p className={subText}>Low cost cargo shipping across india</p></li></Link>
+                            <Link to="/products/intercity-delivery"><li className={liClass}>inter-city delivery<p className={subText}>Speedy intercity deliveries within hours</p></li></Link>
                     </ul>
             </div>
             {/* second */}
             <div>
-                    <span className="text-lg text-gray-700 font-light mx-2"> FULFILMENT
-                    </span>
+                    <span className="text-lg text-gray-700 font-light mx-2"> FULFILMENT</span>
                     <ul className="mx-6">
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Warehouse
-                                    <p className="text-[11px] text-gray-400">20k+ Warehouse, closest-to-buyer storage
-                                    </p>
-                            </li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">1day/ 2days delivery<p className="text-[11px] text-gray-400">Assured same/next dayo order delivery
-                            </p>
-                            </li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">omnichannel <p className="text-[11px] text-gray-400">end-to-end unified retail enablement solution
-                            </p>
-                            </li>
-
+                            <Link to="/products/warehouse"><li className={liClass}>Warehouse<p className={subText}>20k+ Warehouse, closest-to-buyer storage</p></li></Link>
+                            <Link to="/products/express-delivery"><li className={liClass}>1day/ 2days delivery<p className={subText}>Assured same/next day order delivery</p></li></Link>
+                            <Link to="/products/omnichannel"><li className={liClass}>omnichannel<p className={subText}>end-to-end unified retail enablement solution</p></li></Link>
                     </ul>
             </div>
             {/* third */}
             <div>
                     <span className="text-lg text-gray-700 font-light">GROWTH</span>
                     <ul className="mx-6">
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">ecommerce Shipping <p className="text-[11px] text-gray-400">Faster, Reliable Domestic Deliveries
-                            </p></li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">B2B & Bulk shipping <p className="text-[11px] text-gray-400">Lowers Your B2b And Cargo Shipping
-                            </p></li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">hyperlocal <p className="text-[11px] text-gray-400">Fastest shipping in every location
-                            </p></li>
-                            <li className=" text-sm my-2 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">inter-city delivery <p className="text-[11px] text-gray-400">Make Inter-City Deliveries In Hours
-                            </p></li>
+                            <Link to="/products/ecommerce-shipping"><li className={liClass}>ecommerce Shipping<p className={subText}>Faster, Reliable Domestic Deliveries</p></li></Link>
+                            <Link to="/products/b2b-shipping"><li className={liClass}>B2B & Bulk shipping<p className={subText}>Lowers Your B2B And Cargo Shipping</p></li></Link>
+                            <Link to="/products/hyperlocal"><li className={liClass}>hyperlocal<p className={subText}>Fastest shipping in every location</p></li></Link>
+                            <Link to="/products/intercity-delivery"><li className={liClass}>inter-city delivery<p className={subText}>Make Inter-City Deliveries In Hours</p></li></Link>
                     </ul>
             </div>
     </div>
-    {/* fourth */}
-    <div className="flex flex-col  items-start">
-            <span className="text-lg text-gray-700 font-light mx-2 mt-3"> DELIGHT
-            </span>
+    {/* fourth - DELIGHT */}
+    <div className="flex flex-col items-start px-3">
+            <span className="text-lg text-gray-700 font-light mx-2 mt-1"> DELIGHT</span>
             <div className="mx-6 flex">
-                    <div className=" text-sm my-2 mr-10 hover:text-blue-600  underline decoration-white hover:decoration-blue-700  text-black">Postship
-                            <p className="text-[11px] text-gray-400">Branded post-purchase
-                            </p>
-                    </div>
-                    <div className=" text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Returns
-                            <p className="text-[11px] text-gray-400">painless returns & refunds
-                            </p>
-                    </div>
-                    <div className=" text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Tracking
-                            <p className="text-[11px] text-gray-400">Real-time shipment tracking
-                            </p>
-                    </div>
-                    <div className=" text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Trends
-                            <p className="text-[11px] text-gray-400">Data platform for indian
-                            </p>
-                    </div>
-
+                    <Link to="/products/postship"><div className="text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Postship<p className={subText}>Branded post-purchase</p></div></Link>
+                    <Link to="/products/returns"><div className="text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Returns<p className={subText}>painless returns & refunds</p></div></Link>
+                    <Link to="/products/tracking"><div className="text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Tracking<p className={subText}>Real-time shipment tracking</p></div></Link>
+                    <Link to="/products/trends"><div className="text-sm my-2 mr-10 hover:text-blue-600 underline decoration-white hover:decoration-blue-700 text-black">Trends<p className={subText}>Data platform for indian</p></div></Link>
             </div>
     </div>
 </div>)
-    
 }
 
-// Corrected DropDown component{Maincontent}
 const DropDown = () => {
     return (
         <div>
-            <Flyout href="#" FlyoutCont = {DropDownContent}>Products</Flyout> 
+            <Flyout href="#" FlyoutCont={DropDownContent}>Products</Flyout>
         </div>
     );
 };

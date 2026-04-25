@@ -1,6 +1,6 @@
 import React from 'react'
 import "./MarqueeCss.css";
-// import  styled, {keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
 const Marquee = () => {
     const rows1 = [
@@ -33,44 +33,21 @@ const Marquee = () => {
         "https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg",
     ]
 
+    const allRows = [...rows1, ...rows2];
+
     return (
-        <div className='wrap' >
-            <div className='wrapper'>
-                <div className='marquee'>
-                    <span className='marqueeGroup'>
-                        {
-                            rows1.map(el => (
-                                <div className='imageGroup'>
-                                    <img src={el} alt="" className='img' /></div>
-
-                            ))
-                        }
-                        {
-                            rows2.map(el => (
-                                <div className='imageGroup'>
-                                    <img src={el} alt="" className='img' /></div>
-
-                            ))
-                        }
-                        {
-                            rows1.map(el => (
-                                <div className='imageGroup'>
-                                    <img src={el} alt="" className='img' /></div>
-
-                            ))
-                        }
-                        {
-                            rows2.map(el => (
-                                <div className='imageGroup'>
-                                    <img src={el} alt="" className='img' /></div>
-
-                            ))
-                        }
-                        
-                    </span>
-
-                </div>
-            </div>
+        <div className='w-full overflow-hidden py-10 flex items-center'>
+            <motion.div 
+                className='flex items-center w-max'
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ ease: "linear", duration: 60, repeat: Infinity }}
+            >
+                {[...allRows, ...allRows].map((el, index) => (
+                    <div className='imageGroup' key={index}>
+                        <img src={el} alt="" className='img' />
+                    </div>
+                ))}
+            </motion.div>
         </div>
     )
 }

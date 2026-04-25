@@ -53,8 +53,8 @@
 .imageGroup {
     display: grid;
     place-items: center;
-    width: clamp(10rem, 1rem + 40vmin, 30rem);
-    padding: calc(clamp(10rem, 1rem + 40vmin, 30rem)/10);
+    width: clamp(6rem, 1rem + 20vmin, 15rem);
+    padding: calc(clamp(6rem, 1rem + 20vmin, 15rem)/10);
 }
 
 .img {
@@ -66,9 +66,7 @@
     padding: 5px 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+
 /* the marquee of mid2container  */
 .Marquee {
   height: 150px;
