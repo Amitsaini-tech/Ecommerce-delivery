@@ -12,7 +12,7 @@ const NavbarItem = () => {
                         <Platform />
                         <Partner />
                         <Link to={"/Pricing"}><div>Pricing</div></Link>
-                        <div className="">Track Orders</div>
+                        <Link to={"/track-order"}><div className="hover:underline cursor-pointer">Track Orders</div></Link>
                         <Resources />
 
                 </div>
