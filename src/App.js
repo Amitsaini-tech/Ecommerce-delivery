@@ -5,6 +5,9 @@ import MainContainer from './components/MainContainer';
 import Pricing from './dropDownMenus/Pricing';
 import Login from './Login/Login';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import History from './pages/History';
 
 // Platform feature pages
 import CashOnDelivery from './pages/CashOnDelivery';
@@ -71,6 +74,9 @@ const App = () => {
                 <Route path="/Pricing" element={<PageLayout><Pricing/></PageLayout>}/>
                 <Route path="/track-order" element={<PageLayout><TrackOrder/></PageLayout>}/>
                 <Route path="/generate-shipment" element={<PageLayout><GenerateShipment/></PageLayout>}/>
+                <Route path="/profile" element={<PageLayout><Profile/></PageLayout>}/>
+                <Route path="/settings" element={<PageLayout><Settings/></PageLayout>}/>
+                <Route path="/history" element={<PageLayout><History/></PageLayout>}/>
 
                 {/* Platform features */}
                 <Route path="/features/cash-on-delivery" element={<PageLayout><CashOnDelivery/></PageLayout>}/>
