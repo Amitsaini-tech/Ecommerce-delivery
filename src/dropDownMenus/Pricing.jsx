@@ -54,7 +54,7 @@ const Pricing = () => {
           <span className="text-md">Shipping solution</span>
           <p className=" text-gray-500 my-2"> Get an exclusive plan tailored to meet your business needs</p>
           <motion.button whileTap={{ scale: 0.75 }} type="button" className=" relative mt-4 mb-5 drop-shadow-xl hover:shadow-lg  border border-black text-white text-lg font-medium w-[23rem] h-12 bg-indigo-600 rounded-lg hover:bg-white hover:text-indigo-600">
-            Contact sales 
+            Contact sales
           </motion.button>
           <p className=" text-gray-900 my-2 capitalize">✔  customized integration </p>
           <p className=" text-gray-900 my-2 capitalize">✔  dedicated account manager</p>
@@ -64,8 +64,7 @@ const Pricing = () => {
           <p className=" text-gray-900 my-2 capitalize">✔  free NDR call center setup</p>
         </div>
       </div>
-      <Mid2Container/>
-      <div className="mt-6"><Footer /></div>
+      <Mid2Container />
 
     </div>
   )

@@ -91,7 +91,7 @@ const Header = () => {
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                                 className="flex items-center gap-2 hover:opacity-90 transition-opacity"
                             >
-                                <Avatar user={currentUser} size={9} />
+                                <Avatar user={currentUser} size={12} />
                                 <svg className={`w-3 h-3 text-white transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
@@ -203,7 +203,7 @@ const Header = () => {
                                 <li className={liClass}>🔍 Track Orders</li>
                             </Link>
                             <Link to="/Pricing" onClick={() => setisMenu(false)}>
-                                <li className={liClass}>Pricing</li>
+                                <li className={liClass}>💰 Pricing</li>
                             </Link>
 
                             {currentUser && MENU_ITEMS.filter(i => !['/track-order', '/Pricing'].includes(i.to)).map(item => (
